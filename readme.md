@@ -137,3 +137,9 @@ In this case, the command is:
 While the Fly.io app is connecting to the database and connect string has been set up in the .env file, we can open another terminal and test for a connection:
 
     node index.js
+
+# To read
+
+## Core Concepts of Sequelize
+
+https://sequelize.org/docs/v6/category/core-concepts/
