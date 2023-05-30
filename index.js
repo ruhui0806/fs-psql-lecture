@@ -5,20 +5,16 @@ const app = express();
 //Reference: https://sequelize.org/docs/v6/getting-started/
 
 // Connecting to a database:
+//Ref: https://sequelize.org/api/v6/class/src/sequelize.js~sequelize#instance-constructor-constructor
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 
-// Testing the connection:
-const main = async () => {
-  try {
-    await sequelize.authenticate();
-    const notes = await sequelize.query("SELECT * FROM notes", {
-      type: QueryTypes.SELECT,
-    });
-    console.log("Connection has been established successfully.");
-    console.log(notes);
-    sequelize.close();
-  } catch (err) {
-    console.err("Unable to connect to the database: " + err);
-  }
-};
-main();
+app.get("/api/notes", async (req, res) => {
+  const notes = await sequelize.query("SELECT * FROM notes", {
+    type: QueryTypes.SELECT,
+  });
+  res.json(notes);
+});
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
