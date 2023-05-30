@@ -45,16 +45,24 @@ app.get("/api/notes", async (req, res) => {
 });
 
 app.post("/api/notes", async (req, res) => {
-  console.log(req.body);
-  const note = await Note.create(req.body);
-  res.json(note);
+  try {
+    console.log(req.body);
+    const note = await Note.create(req.body);
+    res.json(note);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
 });
-//Option 2:
+//Option 2 for adding a new note:
 app.post("/api/notes", async (req, res) => {
-  console.log(req.body);
-  const note = Note.build(req.body);
-  await note.save();
-  res.json(note);
+  try {
+    console.log(req.body);
+    const note = Note.build(req.body);
+    note.important = true;
+    await note.save();
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
 });
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
