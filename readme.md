@@ -40,8 +40,13 @@ Then connect Postgres database to your fly app:
 
 After the connect, you can start creating a table and insert rows into the table. Type in the following after "postgres=#" :
 
-    CREATE TABLE notes (id SERIAL PRIMARY KEY, content text NOT NULL, important boolean, date time)
+    CREATE TABLE notes (id SERIAL PRIMARY KEY, content text NOT NULL, important boolean, date time);
 
+    INSERT INTO notes (content, important) VALUES ('Relational databases rule the world', true);
+
+    INSERT INTO notes (content, important) VALUES ('MongoDB is webscale', false);
+
+Note: the psql command should end with a semicolon ";";
 Then check if the table is created:
 
     \d
@@ -123,7 +128,7 @@ Create a index.js file and add the following content:
 
 When using Fly.io, the local connection to the database should first be enabled by tunneling the localhost port 5432 to the Fly.io database port using the following command:
 
-    flyctl proxy 5432 -a <app-name>-db
+    flyctl proxy 5432 -a <app-name>
 
 In this case, the command is:
 
