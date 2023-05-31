@@ -42,7 +42,7 @@ app.get("/api/notes", async (req, res) => {
   //   });
 
   const notes = await Note.findAll();
-  console.log(notes.map((n) => n.toJSON()));
+  // console.log(notes.map((n) => n.toJSON()));
   console.log(JSON.stringify(notes));
   res.json(notes);
 });
@@ -58,7 +58,6 @@ app.get("/api/notes/:id", async (req, res) => {
 });
 app.post("/api/notes", async (req, res) => {
   try {
-    console.log(req.body);
     const note = await Note.create(req.body);
     res.json(note);
   } catch (error) {
@@ -90,6 +89,7 @@ app.put("/api/notes/:id", async (req, res) => {
 
 app.delete("/api/notes/:id", async (req, res) => {
   const note = await Note.findByPk(req.params.id);
+  Bl;
   if (note) {
     await Note.destroy({
       where: {
