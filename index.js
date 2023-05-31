@@ -40,14 +40,17 @@ app.get("/api/notes", async (req, res) => {
   //   const notes = await sequelize.query("SELECT * FROM notes", {
   //     type: QueryTypes.SELECT,
   //   });
-  console.log(req.body);
+
   const notes = await Note.findAll();
+  console.log(notes.map((n) => n.toJSON()));
+  console.log(JSON.stringify(notes));
   res.json(notes);
 });
 
 app.get("/api/notes/:id", async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
+    console.log(note.toJSON());
     res.json(note);
   } else {
     res.status(404).end();
@@ -80,6 +83,20 @@ app.put("/api/notes/:id", async (req, res) => {
     note.important = req.body.important;
     await note.save();
     res.json(note);
+  } else {
+    res.status(404).end();
+  }
+});
+
+app.delete("/api/notes/:id", async (req, res) => {
+  const note = await Note.findByPk(req.params.id);
+  if (note) {
+    await Note.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(204).end();
   } else {
     res.status(404).end();
   }
