@@ -35,6 +35,7 @@ Note.init(
     modelName: "note",
   }
 );
+Note.sync();
 app.get("/api/notes", async (req, res) => {
   //   const notes = await sequelize.query("SELECT * FROM notes", {
   //     type: QueryTypes.SELECT,
@@ -44,6 +45,14 @@ app.get("/api/notes", async (req, res) => {
   res.json(notes);
 });
 
+app.get("/api/notes/:id", async (req, res) => {
+  const note = await Note.findByPk(req.params.id);
+  if (note) {
+    res.json(note);
+  } else {
+    res.status(404).end();
+  }
+});
 app.post("/api/notes", async (req, res) => {
   try {
     console.log(req.body);
@@ -53,15 +62,26 @@ app.post("/api/notes", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
-//Option 2 for adding a new note:
-app.post("/api/notes", async (req, res) => {
-  try {
-    console.log(req.body);
-    const note = Note.build(req.body);
-    note.important = true;
+// //Option 2 for adding a new note:
+// app.post("/api/notes", async (req, res) => {
+//   try {
+//     console.log(req.body);
+//     const note = Note.build(req.body);
+//     note.important = true;
+//     await note.save();
+//   } catch (error) {
+//     return res.status(400).json({ error });
+//   }
+// });
+
+app.put("/api/notes/:id", async (req, res) => {
+  const note = await Note.findByPk(req.params.id);
+  if (note) {
+    note.important = req.body.important;
     await note.save();
-  } catch (error) {
-    return res.status(400).json({ error });
+    res.json(note);
+  } else {
+    res.status(404).end();
   }
 });
 const PORT = process.env.PORT || 3001;
