@@ -128,7 +128,7 @@ Create a index.js file and add the following content:
 
 When using Fly.io, the local connection to the database should first be enabled by tunneling the localhost port 5432 to the Fly.io database port using the following command:
 
-    flyctl proxy 5432 -a <app-name>
+    flyctl proxy 5432 -a <postgresql-app-name-in-fly.io>
 
 In this case, the command is:
 
