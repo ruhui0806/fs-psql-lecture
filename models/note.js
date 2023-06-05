@@ -20,6 +20,12 @@ Note.init(
     date: {
       type: DataTypes.DATE,
     },
+    //
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: { model: "user", key: "id" }, // model: "users" would also work
+    // },
   },
   {
     sequelize,
