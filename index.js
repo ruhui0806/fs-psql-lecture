@@ -1,4 +1,5 @@
 const express = require("express");
+require("express-async-errors");
 const app = express();
 const { connectToDatabase } = require("./util/db");
 const { PORT } = require("./util/config");

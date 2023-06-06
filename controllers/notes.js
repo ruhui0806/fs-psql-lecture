@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     attributes: { exclude: ["userId"] },
     include: { model: User, attributes: ["name"] },
   });
-  console.log(JSON.stringify(notes));
+  // console.log(JSON.stringify(notes));
   res.json(notes);
 });
 
