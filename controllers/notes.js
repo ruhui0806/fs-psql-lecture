@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   const notes = await Note.findAll({
     attributes: { exclude: ["userId"] },
     include: { model: User, attributes: ["name"] },
+    where: { important: req.query.important === "true" },
   });
   // console.log(JSON.stringify(notes));
   res.json(notes);
