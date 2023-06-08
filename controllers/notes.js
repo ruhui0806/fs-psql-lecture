@@ -8,13 +8,20 @@ const noteFinder = async (req, res, next) => {
 
 //ref: https: sequelize.org/docs/v6/core-concepts/model-querying-basics/#specifying-attributes-for-select-queries
 router.get("/", async (req, res) => {
-  const notes = await Note.findAll({
-    attributes: { exclude: ["userId"] },
-    include: { model: User, attributes: ["name"] },
-    where: { important: req.query.important === "true" },
-  });
-  // console.log(JSON.stringify(notes));
-  res.json(notes);
+  if (req.query.important) {
+    const notes = await Note.findAll({
+      attributes: { exclude: ["userId"] },
+      include: { model: User, attributes: ["name"] },
+      where: { important: req.query.important === "true" },
+    });
+    res.json(notes);
+  } else {
+    const notes = await Note.findAll({
+      attributes: { exclude: ["userId"] },
+      include: { model: User, attributes: ["name"] },
+    });
+    res.json(notes);
+  }
 });
 
 router.post("/", async (req, res) => {
