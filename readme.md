@@ -145,3 +145,4 @@ While the Fly.io app is connecting to the database and connect string has been s
 https://sequelize.org/docs/v6/category/core-concepts/
 https://www.postgresql.org/docs/9.1/sql-commands.html
 https://www.postgresql.org/docs/15/index.html
+https://sequelize.org/docs/v6/other-topics/query-interface/
