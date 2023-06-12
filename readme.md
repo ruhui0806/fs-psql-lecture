@@ -156,6 +156,8 @@ In migration, the column and table names are written in snake case form, e.g., u
 Changes are defined by calling the queryInterface object methods:
 https://sequelize.org/docs/v6/other-topics/query-interface/
 
+https://sequelize.org/api/v6/class/src/dialects/abstract/query-interface.js~queryinterface
+
 The migration files should be stored alphabetically, so that newer changes are always after previous changes. Here we name it with the date adn a sequence number, e.g., migrations/20230612_00_initialize_notes_and_users.js
 
 ## Run the migrations file
