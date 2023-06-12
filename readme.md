@@ -166,6 +166,6 @@ Option 1: from command line using "Sequelize command line tool (CLI)": https://s
 
     npm install --save-dev sequelize-cli
 
-Option 2: use Umzug library:
+Option 2: use Umzug library: https://github.com/sequelize/umzug
 
     npm install umzug
