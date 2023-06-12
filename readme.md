@@ -146,3 +146,24 @@ https://sequelize.org/docs/v6/category/core-concepts/
 https://www.postgresql.org/docs/9.1/sql-commands.html
 https://www.postgresql.org/docs/15/index.html
 https://sequelize.org/docs/v6/other-topics/query-interface/
+
+# Migrations
+
+Migration is a js file that defines the modifications to a database. A migration file defines the functions up and down. Up function defines how the database is updated (modified). Down function defines how to undo the migration if needed.
+
+In migration, the column and table names are written in snake case form, e.g., user_id, while models name use camelCase.
+
+Changes are defined by calling the queryInterface object methods:
+https://sequelize.org/docs/v6/other-topics/query-interface/
+
+The migration files should be stored alphabetically, so that newer changes are always after previous changes. Here we name it with the date adn a sequence number, e.g., migrations/20230612_00_initialize_notes_and_users.js
+
+## Run the migrations file
+
+Option 1: from command line using "Sequelize command line tool (CLI)": https://sequelize.org/docs/v6/other-topics/migrations/
+
+    npm install --save-dev sequelize-cli
+
+Option 2: use Umzug library:
+
+    npm install umzug
