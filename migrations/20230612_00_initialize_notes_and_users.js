@@ -20,7 +20,7 @@ module.exports = {
         type: DataTypes.DATE,
       },
     });
-    await QueryInterface.createTable("user", {
+    await QueryInterface.createTable("users", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

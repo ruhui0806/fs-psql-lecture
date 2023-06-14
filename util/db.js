@@ -26,10 +26,9 @@ const connectToDatabase = async () => {
     await runMigrations();
     console.log("Connected to the database");
   } catch (error) {
-    console.log("Failed to connect to the database");
+    console.log("Failed to connect to the database: ", error.message);
     return process.exit(1);
   }
-
   return null;
 };
 
@@ -39,4 +38,4 @@ const rollbackMigration = async () => {
   await migrator.down();
 };
 
-module.exports = { connectToDatabase, sequelize, rollbackMigration };
+module.exports = { sequelize, connectToDatabase, rollbackMigration };
