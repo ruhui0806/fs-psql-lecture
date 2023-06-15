@@ -169,3 +169,5 @@ Option 1: from command line using "Sequelize command line tool (CLI)": https://s
 Option 2: use Umzug library: https://github.com/sequelize/umzug
 
     npm install umzug
+
+Note: So in migrations, the names of the tables and columns are written exactly as they appear in the database (snake_case_form), while models use Sequelize's default camelCase naming convention.
