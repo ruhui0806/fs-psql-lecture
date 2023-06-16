@@ -171,3 +171,8 @@ Option 2: use Umzug library: https://github.com/sequelize/umzug
     npm install umzug
 
 Note: So in migrations, the names of the tables and columns are written exactly as they appear in the database (snake_case_form), while models use Sequelize's default camelCase naming convention.
+
+## Many-to-Many relationship
+
+To read:
+https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/#specifying-attributes-from-the-through-table
