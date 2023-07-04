@@ -175,4 +175,5 @@ Note: So in migrations, the names of the tables and columns are written exactly 
 ## Many-to-Many relationship
 
 To read:
+
 https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/#specifying-attributes-from-the-through-table
