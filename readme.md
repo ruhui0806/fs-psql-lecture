@@ -138,8 +138,6 @@ While the Fly.io app is connecting to the database and connect string has been s
 
     node index.js
 
-# To read
-
 ## Core Concepts of Sequelize
 
 https://sequelize.org/docs/v6/category/core-concepts/
@@ -171,6 +169,11 @@ Option 2: use Umzug library: https://github.com/sequelize/umzug
     npm install umzug
 
 Note: So in migrations, the names of the tables and columns are written exactly as they appear in the database (snake_case_form), while models use Sequelize's default camelCase naming convention.
+
+### Note: Naming convention for tables and columns
+
+<li> In Model files: camel-case form, e.g.,: userId.
+<li> In migration files: snake-case form, e.g.,: user_id.
 
 ## Many-to-Many relationship
 
