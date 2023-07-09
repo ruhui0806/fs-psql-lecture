@@ -170,10 +170,14 @@ Option 2: use Umzug library: https://github.com/sequelize/umzug
 
 Note: So in migrations, the names of the tables and columns are written exactly as they appear in the database (snake_case_form), while models use Sequelize's default camelCase naming convention.
 
-### Note: Naming convention for tables and columns
+### Naming convention
 
-<li> In Model files: camel-case form, e.g.,: userId.
+For tables and columns:
+
+<li> In Model files:  Sequelize's default camelCase naming convention, e.g., userId.
 <li> In migration files: snake-case form, e.g.,: user_id.
+
+Migration file names should always be named alphabetically when created so that previous changes are always before newer changes. One good way to achieve this order is to start the migration file name with the date and a sequence number.
 
 ## Many-to-Many relationship
 
