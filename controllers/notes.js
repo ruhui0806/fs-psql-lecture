@@ -46,6 +46,8 @@ router.get("/", async (req, res) => {
   res.json(notes);
 });
 
+//Sequelize provides the create method, which combines the build and save methods shown above into a single method:
+//https://sequelize.org/docs/v6/core-concepts/model-instances/#a-very-useful-shortcut-the-create-method
 router.post("/", async (req, res) => {
   try {
     const user = await User.findByPk(req.decodedToken.id);
