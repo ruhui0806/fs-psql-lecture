@@ -170,6 +170,8 @@ Option 2: use Umzug library: https://github.com/sequelize/umzug
 
 Note: So in migrations, the names of the tables and columns are written exactly as they appear in the database (snake_case_form), while models use Sequelize's default camelCase naming convention.
 
+Note: the local connection to the database should also be left to running if you are trying to migration down (undo the migrations).
+
 ### Naming convention
 
 For tables and columns:
