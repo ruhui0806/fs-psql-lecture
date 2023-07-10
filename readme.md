@@ -183,6 +183,16 @@ Migration file names should always be named alphabetically when created so that 
 
 ## Many-to-Many relationship
 
+In this app, a user can join many teams, and a team has many users, which is a typical type of many-to-many relationship.
+
+A traditional way to implement many-to-many relationships is to create a "connection table", or so-called "through table". As for this app, the connection table is named as "Membership". In the memebership table, it has paired "userId-teamId" columns.
+
+So the relationships between user and team and membership is as follows:
+
+User <-- Membership --> Team
+
 To read:
 
 https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/#specifying-attributes-from-the-through-table
+
+//https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
