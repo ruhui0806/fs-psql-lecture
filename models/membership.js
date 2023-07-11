@@ -31,3 +31,4 @@ Membership.init(
 );
 
 module.exports = Membership;
+//underscored: true, which means that table names are derived from model names as plural snake case versions
