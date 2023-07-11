@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = {
-  up: async ({ context: QueryInterface }) => {
-    await QueryInterface.createTable("notes", {
+  up: async ({ context: queryInterface }) => {
+    await queryInterface.createTable("notes", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -14,19 +14,18 @@ module.exports = {
       },
       important: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
       },
       date: {
         type: DataTypes.DATE,
       },
     });
-    await QueryInterface.createTable("users", {
+    await queryInterface.createTable("users", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      usernames: {
+      username: {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
@@ -36,14 +35,14 @@ module.exports = {
         allowNull: false,
       },
     });
-    await QueryInterface.addColumn("notes", "user_id", {
+    await queryInterface.addColumn("notes", "user_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "user", key: "id" },
+      references: { model: "users", key: "id" },
     });
   },
-  down: async ({ context: QueryInterface }) => {
-    await QueryInterface.dropTable("notes");
-    await QueryInterface.dropTable("users");
+  down: async ({ context: queryInterface }) => {
+    await queryInterface.dropTable("notes");
+    await queryInterface.dropTable("users");
   },
 };

@@ -14,7 +14,7 @@ module.exports = {
         unique: true,
       },
     });
-    await queryInterface.createTable("membership", {
+    await queryInterface.createTable("memberships", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
