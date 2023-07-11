@@ -18,14 +18,33 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const user = await User.findByPk(req.params.id, { include: { model: Note } });
+  const user = await User.findByPk(req.params.id, {
+    // attributes: {exclude: [""]},
+    include: [
+      {
+        model: Note,
+        attributes: { exclude: ["userId"] },
+      },
+      {
+        model: Note,
+        as: "marked_notes",
+        attributes: { exclude: ["userId"] },
+        through: { attributes: [] },
+      },
+      {
+        model: Team,
+        attributes: ["name", "id"],
+        through: { attributes: [] },
+      },
+    ],
+  });
   if (user) {
-    // res.json(user);
-    res.json({
-      username: user.username,
-      name: user.name,
-      note_count: user.notes.length,
-    });
+    res.json(user);
+    // res.json({
+    //   username: user.username,
+    //   name: user.name,
+    //   note_count: user.notes.length,
+    // });
   } else {
     res.status(404).end();
   }
