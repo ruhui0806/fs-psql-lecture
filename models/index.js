@@ -10,6 +10,8 @@ Note.belongsTo(User);
 User.belongsToMany(Team, { through: Membership });
 Team.belongsToMany(User, { through: Membership });
 
+//User "has many" Note, as "marked_notes";
+// Note "has many" User, as "users_marked"
 User.belongsToMany(Note, { through: UserNotes, as: "marked_notes" });
 Note.belongsToMany(User, { through: UserNotes, as: "users_marked" });
 //  https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
