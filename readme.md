@@ -191,8 +191,12 @@ So the relationships between user and team and membership is as follows:
 
 User <-- Membership --> Team
 
-To read:
+# To read:
 
-https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/#specifying-attributes-from-the-through-table
+<li> Through table for many-to-many association: https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/#specifying-attributes-from-the-through-table
 
-//https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
+<li> Validations and constraints: https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
+
+<li> Fetching associations: lazy loading VS eager loading: https://sequelize.org/docs/v6/core-concepts/assocs/#fetching-associations---eager-loading-vs-lazy-loading
+
+<li> Scopes: https://sequelize.org/docs/v6/other-topics/scopes/

@@ -35,8 +35,26 @@ User.init(
     underscored: true,
     timestamps: false,
     modelName: "user",
+    defaultScope: {
+      where: {
+        disabled: false,
+      },
+    },
+    scopes: {
+      admin: {
+        where: {
+          admin: true,
+        },
+      },
+      disabled: {
+        where: {
+          disabled: true,
+        },
+      },
+    },
   }
 );
 
 module.exports = User;
 //underscored: true, which means that table names are derived from model names as plural snake case versions
+//scope: https://sequelize.org/docs/v6/other-topics/scopes/
