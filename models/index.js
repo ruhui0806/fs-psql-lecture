@@ -3,6 +3,7 @@ const User = require("./user");
 const Team = require("./team");
 const Membership = require("./membership");
 const UserNotes = require("./user_notes");
+const Session = require("./session");
 
 User.hasMany(Note);
 Note.belongsTo(User);
@@ -25,4 +26,5 @@ module.exports = {
   Team,
   Membership,
   UserNotes,
+  Session,
 };
