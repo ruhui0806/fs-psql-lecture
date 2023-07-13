@@ -27,12 +27,12 @@ After the app is created, you shoud store the credentials from the terminal, whi
 
     Postgres cluster fs-psql-lecture-part13 created
     Username: postgres
-    Password: nrPxndBN5hKJrkj
+    Password: <your-password-here>
     Hostname: fs-psql-lecture-part13.internal
     Flycast: fdaa:0:f1d7:0:1::2
     Proxy port: 5432
     Postgres port: 5433
-    Connection string: postgres://postgres:nrPxndBN5hKJrkj@fs-psql-lecture-part13.flycast:5432
+    Connection string: postgres://postgres:<your-password-here>@fs-psql-lecture-part13.flycast:5432
 
 Then connect Postgres database to your fly app:
 
@@ -107,24 +107,7 @@ If you use Docker, the DATABASE_URL should look like:
 
 Then create a gitignore file and add "node_modules", ".env" files to it.
 
-Create a index.js file and add the following content:
-
-    require('dotenv').config()
-    const { Sequelize } = require('sequelize')
-
-    const sequelize = new Sequelize(process.env.DATABASE_URL)
-
-    const main = async () => {
-    try {
-        await sequelize.authenticate()
-        console.log('Connection has been established successfully.')
-        sequelize.close()
-    } catch (error) {
-        console.error('Unable to connect to the database:', error)
-    }
-    }
-
-    main()
+Create a index.js file and configure the sequelize connection to it.
 
 When using Fly.io, the local connection to the database should first be enabled by tunneling the localhost port 5432 to the Fly.io database port using the following command:
 
